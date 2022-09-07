@@ -1,7 +1,11 @@
-import { isJs, isYaml } from "../utils/fileFormatUtils";
 import { parse as parseYaml } from "yaml";
 import fs from "fs/promises";
+import { isJs, isYaml } from "../utils/fileFormatUtils";
 import { Config } from "../types";
+
+function readConfigFile(configFile: string) {
+  return fs.readFile(configFile, "utf-8");
+}
 
 /**
  * loadConfig
@@ -24,6 +28,7 @@ export default async function loadConfig(configFile: string): Promise<Config> {
   }
   if (isJs(configFile)) {
     try {
+      /* eslint-disable-next-line import/no-dynamic-require,global-require */
       return require(configFile);
     } catch (e: any) {
       if (e.code === "MODULE_NOT_FOUND") {
@@ -40,8 +45,4 @@ export default async function loadConfig(configFile: string): Promise<Config> {
   } catch (e: any) {
     throw new Error(`Could not parse ${configFile}: ${e.message}`);
   }
-}
-
-function readConfigFile(configFile: string) {
-  return fs.readFile(configFile, "utf-8");
 }

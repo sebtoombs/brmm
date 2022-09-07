@@ -18,12 +18,14 @@ export default async function executeCommand(
     if (command.length && !command.match(/\s/) && config?.tasks?.[command]) {
       return executeTask(config, command);
     }
-    return await executeSingleCommand(command);
+    return executeSingleCommand(command);
   }
   // Execute an array of commands in series
   if (Array.isArray(command)) {
     const results = [];
+    /* eslint-disable no-restricted-syntax */
     for (const cmd of command) {
+      /* eslint-disable no-await-in-loop */
       results.push(await executeCommand(cmd, config));
     }
     return results;
@@ -31,16 +33,20 @@ export default async function executeCommand(
   // Execute an object command
   if (typeof command === "object" && !Array.isArray(command)) {
     if ("parallel" in command && Array.isArray(command.parallel)) {
-      return await Promise.all(
+      return Promise.all(
         command.parallel.map((cmd) => executeCommand(cmd, config))
       );
     }
     if ("series" in command && Array.isArray(command.series)) {
       const results = [];
+      /* eslint-disable no-restricted-syntax  */
       for (const cmd of command.series) {
+        /* eslint-disable no-await-in-loop  */
         results.push(await executeCommand(cmd, config));
       }
       return results;
     }
   }
+
+  return null;
 }

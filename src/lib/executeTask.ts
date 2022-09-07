@@ -7,14 +7,14 @@ export default async function executeTask(config: Config, task: string) {
 
   if (typeof taskConfig === "string" || Array.isArray(taskConfig)) {
     logger.info(`Executing command for ${task}`);
-    return await executeCommand(taskConfig, config);
+    return executeCommand(taskConfig, config);
   }
   if (
     typeof taskConfig === "object" &&
     ("parallel" in taskConfig || "series" in taskConfig)
   ) {
     logger.info(`Executing command for ${task}`);
-    return await executeCommand(taskConfig, config);
+    return executeCommand(taskConfig, config);
   }
   if (typeof taskConfig === "object") {
     const results: {
@@ -38,4 +38,6 @@ export default async function executeTask(config: Config, task: string) {
 
     return results.command;
   }
+
+  return null;
 }

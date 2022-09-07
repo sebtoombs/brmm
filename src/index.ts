@@ -6,7 +6,7 @@ import { hideBin } from "yargs/helpers";
 import logger from "./logger";
 import loadConfig from "./lib/loadConfig";
 import validateConfig from "./lib/validateConfig";
-import { locateConfigFile } from "./lib/locateConfigFile";
+import locateConfigFile from "./lib/locateConfigFile";
 import executeTask from "./lib/executeTask";
 
 const argv = yargs(hideBin(process.argv))

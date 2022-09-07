@@ -1,0 +1,19 @@
+tasks:
+  dev:
+    command: "npm run dev"
+    pre: "echo 'pre'" # single command
+    post:
+      - "echo 'post 1'" # multiple commands in series
+      - "echo 'post 2'"
+      - - "echo 'post 3.1'" # multiple commands in parallel
+        - "echo 'post 3.2'"
+  build: "npm run build"
+  pre-push: ["npm run test", "npm run lint"]
+  test:
+    command: ["npm run test:foo", "npm run test:bar"]
+  parallel: { parallel: ["node server.js", "node server.js -p 8100"] }
+  series: ["echo 'series 1'", "echo 'series 2'"]
+  output:
+    ["OUTPUT=$(node ./long-running-process.js | grep foo) && echo $OUTPUT"]
+  composed: ["echo 'composed 1'", "echo 'composed 2'", "composed_3"]
+  composed_3: "echo 'composed 3'"

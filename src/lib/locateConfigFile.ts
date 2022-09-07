@@ -11,7 +11,7 @@ import logger from "../logger";
  * - buildr.config.js
  * - buildr.config.json
  */
-export async function locateConfigFile() {
+export default async function locateConfigFile() {
   const tryFileNames = [
     "buildr.config.yml",
     "buildr.config.yaml",
@@ -20,9 +20,10 @@ export async function locateConfigFile() {
   ];
 
   let fileName;
-  for (let index = 0; index < tryFileNames.length && !fileName; index++) {
+  for (let index = 0; index < tryFileNames.length && !fileName; index += 1) {
     const tryFileName = tryFileNames[index];
     try {
+      /* eslint-disable no-await-in-loop */
       await fs.access(path.join(process.cwd(), tryFileName));
       fileName = tryFileName;
     } catch (e) {
