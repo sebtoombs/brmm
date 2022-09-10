@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm build:production
-      - run: npm build:package
+      - run: npm run ci
+      - run: npm run build:production
+      - run: npm run build:package
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
