@@ -1,0 +1,24 @@
+tasks:
+  # brmm dev
+  dev:
+    pre: "echo 'I run before the command'" # I will run first
+    command: "npm run dev" # I will run when `pre` finishes
+    post: # I will run when `command` finishes (or is terminated)
+      - "echo 'post 1'" # multiple commands in series
+      - "echo 'post 2'"
+      # Mutiple commands in parallel
+      - { parallel: ["node server.js", "node server.js -p 8100"] }
+  # brmm build
+  build: "npm run build"
+  # brmm test
+  pre-push: ["npm run lint", "npm run test", "npm run build"] # each command runs in series
+  test:
+    command: ["npm run test:foo", "npm run test:bar"]
+  parallel: { parallel: ["node server.js", "node server.js -p 8100"] }
+  series: ["echo 'series 1'", "echo 'series 2'"]
+  # you can use shell commands as long as your env supports them
+  output:
+    ["OUTPUT=$(node ./long-running-process.js | grep foo) && echo $OUTPUT"]
+  # You can reference other tasks
+  composed: ["echo 'composed 1'", "echo 'composed 2'", "composed_3"]
+  composed_3: "echo 'composed 3'"

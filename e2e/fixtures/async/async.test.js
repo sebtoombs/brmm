@@ -6,7 +6,7 @@ describe("async", () => {
   test("should wait for output of async task", async () => {
     await runner()
       .cwd("e2e/fixtures/async")
-      .fork("../../../dist/buildr.js", ["test"])
+      .fork("../../../dist/brmm.js", ["test"])
       .stdout("Finished");
   });
 });

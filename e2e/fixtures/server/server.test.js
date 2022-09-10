@@ -6,7 +6,7 @@ describe("server", () => {
   test("should work with long-running processes in parallel", async () => {
     await runner()
       .cwd("e2e/fixtures/server")
-      .fork("../../../dist/buildr.js", ["test"])
+      .fork("../../../dist/brmm.js", ["test"])
       .wait("stdout", /Server is running on /)
       .expect(async () => {
         request("http://127.0.0.1:8000")

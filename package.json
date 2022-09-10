@@ -1,6 +1,6 @@
 {
-  "name": "buildr",
-  "version": "1.0.0",
+  "name": "brmm",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "bin": "./dist/index.js",
@@ -11,10 +11,10 @@
     "test:e2e": "npm run build:dev && vitest run",
     "ci": "npm run lint && npm run test:unit -- --ci --coverage && npm run test:e2e",
     "clean": "shx rm -rf dist",
-    "dev": "npm run build:dev && ./dist/buildr.js",
+    "dev": "npm run build:dev && ./dist/brmm.js",
     "build:dev": "tsup",
-    "build:production": "npm run clean && ncc build src/index.ts && shx mv dist/index.js dist/buildr.js",
-    "build:package": "pkg dist/buildr.js -t node16-macos,node16-linux,node16-windows  -o dist/buildr --compress Brotli"
+    "build:production": "npm run clean && ncc build src/index.ts && shx mv dist/index.js dist/brmm.js",
+    "build:package": "pkg dist/brmm.js -t node16-macos,node16-linux,node16-windows  -o dist/brmm --compress Brotli"
   },
   "keywords": [],
   "author": "",

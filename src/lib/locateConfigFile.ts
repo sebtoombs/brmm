@@ -5,18 +5,18 @@ import logger from "../logger";
 /**
  * locateConfigFile
  *
- * Will search for a buildr.config file in the current working directory like this;
- * - buildr.config.yml
- * - buildr.config.yaml
- * - buildr.config.js
- * - buildr.config.json
+ * Will search for a brmm.config file in the current working directory like this;
+ * - brmm.config.yml
+ * - brmm.config.yaml
+ * - brmm.config.js
+ * - brmm.config.json
  */
 export default async function locateConfigFile() {
   const tryFileNames = [
-    "buildr.config.yml",
-    "buildr.config.yaml",
-    "buildr.config.js",
-    "buildr.config.json",
+    "brmm.config.yml",
+    "brmm.config.yaml",
+    "brmm.config.js",
+    "brmm.config.json",
   ];
 
   let fileName;
