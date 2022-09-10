@@ -9,7 +9,7 @@
     "url": "https://github.com/sebtoombs/brmm"
   },
   "scripts": {
-    "lint": "eslint src --ext .ts",
+    "lint": "./node_modules/.bin/eslint src --ext .ts",
     "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest",
     "test:e2e": "npm run build:dev && vitest run",
