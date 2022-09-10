@@ -19,7 +19,7 @@ jobs:
       - run: npm run build:package
       - id: get_version
         uses: battila7/get-version-action@v2
-      - run: npm version ${{ steps.get_version.outputs.version-without-v }} --no-commit-hooks --no-git-tag-version
+      - run: npm version ${{ steps.get_version.outputs.version }} --no-commit-hooks --no-git-tag-version
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
