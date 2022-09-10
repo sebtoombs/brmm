@@ -2,8 +2,8 @@
   "name": "brmm",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "bin": "./dist/index.js",
+  "main": "./dist/buildr.js",
+  "bin": "./dist/buildr.js",
   "scripts": {
     "lint": "eslint src --ext .ts",
     "test": "npm run test:unit && npm run test:e2e",
