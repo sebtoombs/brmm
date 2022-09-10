@@ -1,4 +1,4 @@
-name: "tagged-release"
+name: "Create release"
 
 on:
   push:
