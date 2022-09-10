@@ -1,5 +1,6 @@
 import { Command, Config } from "../types";
 import executeSingleCommand from "./executeSingleCommand";
+/* eslint-disable  */
 import executeTask from "./executeTask";
 
 type ExecResult = any | ExecResult[];

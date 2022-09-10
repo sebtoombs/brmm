@@ -1,0 +1,2 @@
+tasks:
+  test: "node ./async-process.js"

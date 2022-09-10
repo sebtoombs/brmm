@@ -1,5 +1,6 @@
 import logger from "../logger";
 import { Config } from "../types";
+/* eslint-disable  */
 import executeCommand from "./executeCommand";
 
 export default async function executeTask(config: Config, task: string) {

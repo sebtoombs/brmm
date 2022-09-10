@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import path from "path";
 
 import yargs from "yargs/yargs";
@@ -51,7 +53,7 @@ async function main() {
 
 try {
   main();
-} catch (e) {
-  logger.error(e);
+} catch (e: any) {
+  logger.error(e?.message || e);
   process.exit(1);
 }
