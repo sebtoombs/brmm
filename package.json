@@ -20,7 +20,17 @@
     "build:production": "npm run clean && ncc build src/index.ts && shx mv dist/index.js dist/brmm.js",
     "build:package": "pkg dist/brmm.js -t node16-macos,node16-linux,node16-windows  -o dist/brmm --compress Brotli"
   },
-  "keywords": [],
+  "keywords": [
+    "brmm",
+    "build",
+    "build tool",
+    "task runner",
+    "task",
+    "runner",
+    "run task",
+    "run",
+    "dev tool"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -53,5 +63,8 @@
     "yaml": "^2.1.1",
     "yargs": "^17.5.1",
     "yup": "^0.32.11"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
