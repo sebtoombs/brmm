@@ -4,6 +4,10 @@
   "description": "",
   "main": "./dist/buildr.js",
   "bin": "./dist/buildr.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebtoombs/brmm"
+  },
   "scripts": {
     "lint": "eslint src --ext .ts",
     "test": "npm run test:unit && npm run test:e2e",
